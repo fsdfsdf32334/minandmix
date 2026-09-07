@@ -12,33 +12,23 @@ public class GlobalKeyboardHook : IDisposable
 	private struct KbdLlHookStruct
 	{
 		public int vkCode;
-
 		public int scanCode;
-
 		public int flags;
-
 		public int time;
-
 		public nint dwExtraInfo;
 	}
 
 	private const int WH_KEYBOARD_LL = 13;
-
 	private const int WM_KEYDOWN = 256;
-
 	private const int WM_KEYUP = 257;
-
 	private const int WM_SYSKEYDOWN = 260;
-
 	private const int WM_SYSKEYUP = 261;
 
 	private readonly HookProc _proc;
-
 	private nint _hookId = IntPtr.Zero;
 
-	public event Action<Keys> KeyDown;
-
-	public event Action<Keys> KeyUp;
+	public event Action<Keys>? KeyDown;
+	public event Action<Keys>? KeyUp;
 
 	public GlobalKeyboardHook()
 	{
@@ -69,17 +59,18 @@ public class GlobalKeyboardHook : IDisposable
 	{
 		if (nCode >= 0)
 		{
-			Keys vkCode = (Keys)Marshal.PtrToStructure<KbdLlHookStruct>(lParam).vkCode;
+			var hookStruct = Marshal.PtrToStructure<KbdLlHookStruct>(lParam);
+			Keys vkCode = (Keys)hookStruct.vkCode;
 			switch ((int)wParam)
 			{
-			case 256:
-			case 260:
-				KeyDown?.Invoke(vkCode);
-				break;
-			case 257:
-			case 261:
-				KeyUp?.Invoke(vkCode);
-				break;
+				case 256:
+				case 260:
+					KeyDown?.Invoke(vkCode);
+					break;
+				case 257:
+				case 261:
+					KeyUp?.Invoke(vkCode);
+					break;
 			}
 		}
 		return CallNextHookEx(_hookId, nCode, wParam, lParam);

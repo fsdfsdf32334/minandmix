@@ -13,9 +13,8 @@ public class StatsDashboard : Panel
 {
     private Label _lblTotalUptime;
     private Label _lblMostUsedCheat;
-    private Label _lblPingSessions;
+    private Label _lblPingDashboard;
     private Label _lblPanicCount;
-    private ProgressBar _pbCheatsUsage;
     private FlowLayoutPanel _flowCheatStats;
     
     public StatsDashboard()
@@ -89,8 +88,6 @@ public class StatsDashboard : Panel
         this.Controls.Add(_flowCheatStats);
     }
     
-    private Label _lblPingDashboard;
-    
     public void UpdateStats(Core.StatsEngine stats)
     {
         var currentStats = stats.GetCurrentStats();
@@ -108,10 +105,10 @@ public class StatsDashboard : Panel
 /// </summary>
 public class QuickActionPanel : Panel
 {
-    public event Action OnPingToggle;
-    public event Action OnPanicPress;
-    public event Action OnBackupCreate;
-    public event Action OnThemeSwitch;
+    public event Action? OnPingToggle;
+    public event Action? OnPanicPress;
+    public event Action? OnBackupCreate;
+    public event Action? OnThemeSwitch;
     
     public QuickActionPanel()
     {
