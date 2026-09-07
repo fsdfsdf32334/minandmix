@@ -16,7 +16,7 @@ public static class Logger
     private static Queue<LogEntry> _logBuffer = new(100);
     private static LogLevel _minLevel = LogLevel.Debug;
     
-    public static event Action<LogEntry> OnLog;
+    public static event Action<LogEntry>? OnLog;
     
     static Logger()
     {
@@ -27,7 +27,7 @@ public static class Logger
         catch { }
     }
     
-    public static void Log(LogLevel level, string message, Exception ex = null)
+    public static void Log(LogLevel level, string message, Exception? ex = null)
     {
         if (level < _minLevel) return;
         
@@ -56,8 +56,8 @@ public static class Logger
     public static void Debug(string message) => Log(LogLevel.Debug, message);
     public static void Info(string message) => Log(LogLevel.Info, message);
     public static void Warning(string message) => Log(LogLevel.Warning, message);
-    public static void Error(string message, Exception ex = null) => Log(LogLevel.Error, message, ex);
-    public static void Critical(string message, Exception ex = null) => Log(LogLevel.Critical, message, ex);
+    public static void Error(string message, Exception? ex = null) => Log(LogLevel.Error, message, ex);
+    public static void Critical(string message, Exception? ex = null) => Log(LogLevel.Critical, message, ex);
     
     private static string FormatLogEntry(LogEntry entry)
     {
@@ -75,6 +75,6 @@ public class LogEntry
 {
     public DateTime Timestamp { get; set; }
     public Logger.LogLevel Level { get; set; }
-    public string Message { get; set; }
-    public string Exception { get; set; }
+    public string? Message { get; set; }
+    public string? Exception { get; set; }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LOVESIX.Core;
 
@@ -19,14 +20,14 @@ public class NetworkDiagnostics
         public long MinRttMs { get; set; }
         public long MaxRttMs { get; set; }
         public long AvgRttMs { get; set; }
-        public string ConnectionQuality { get; set; } // Excellent, Good, Fair, Poor
+        public string? ConnectionQuality { get; set; } // Excellent, Good, Fair, Poor
         public List<long> RttHistory { get; set; } = new();
     }
     
     private NetworkMetrics _currentMetrics = new();
-    public event Action<NetworkMetrics> MetricsUpdated;
+    public event Action<NetworkMetrics>? MetricsUpdated;
     
-    public async Task<NetworkMetrics> PingHostAsync(string host, int count = 4)
+    public async Task<NetworkMetrics?> PingHostAsync(string host, int count = 4)
     {
         try
         {
@@ -93,16 +94,16 @@ public class UpdateManager
     public class VersionInfo
     {
         public string CurrentVersion { get; set; } = "3.0.0";
-        public string LatestVersion { get; set; }
-        public string ChangeLog { get; set; }
+        public string? LatestVersion { get; set; }
+        public string? ChangeLog { get; set; }
         public bool UpdateAvailable { get; set; }
         public DateTime LastChecked { get; set; }
     }
     
     private VersionInfo _versionInfo = new();
-    public event Action<VersionInfo> UpdateCheckCompleted;
+    public event Action<VersionInfo>? UpdateCheckCompleted;
     
-    public async Task<VersionInfo> CheckForUpdatesAsync()
+    public async Task<VersionInfo?> CheckForUpdatesAsync()
     {
         try
         {
@@ -187,14 +188,14 @@ public class HotkeyProfileManager
 {
     public class HotkeyProfile
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public Dictionary<string, Keys> Bindings { get; set; } = new();
         public DateTime CreatedAt { get; set; }
         public bool IsDefault { get; set; }
     }
     
     private List<HotkeyProfile> _profiles = new();
-    private HotkeyProfile _activeProfile;
+    private HotkeyProfile? _activeProfile;
     
     public HotkeyProfileManager()
     {
@@ -244,7 +245,7 @@ public class HotkeyProfileManager
         }
     }
     
-    public HotkeyProfile GetActiveProfile() => _activeProfile;
+    public HotkeyProfile? GetActiveProfile() => _activeProfile;
     public List<HotkeyProfile> GetAllProfiles() => _profiles;
 }
 
@@ -255,7 +256,7 @@ public class MacroEngine
 {
     public class Macro
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public List<MacroAction> Actions { get; set; } = new();
         public DateTime CreatedAt { get; set; }
         public bool IsActive { get; set; }
@@ -264,8 +265,8 @@ public class MacroEngine
     public class MacroAction
     {
         public DateTime Timestamp { get; set; }
-        public string ActionType { get; set; } // EnableCheat, DisableCheat, SetPing, etc.
-        public string ActionData { get; set; }
+        public string? ActionType { get; set; } // EnableCheat, DisableCheat, SetPing, etc.
+        public string? ActionData { get; set; }
         public int DelayMs { get; set; }
     }
     
@@ -273,7 +274,7 @@ public class MacroEngine
     private List<MacroAction> _recordingBuffer = new();
     private bool _isRecording = false;
     
-    public event Action<string> MacroExecuted;
+    public event Action<string>? MacroExecuted;
     
     public void StartRecording()
     {
@@ -295,7 +296,7 @@ public class MacroEngine
         });
     }
     
-    public Macro StopRecording(string macroName)
+    public Macro? StopRecording(string macroName)
     {
         if (!_isRecording) return null;
         
@@ -339,11 +340,11 @@ public class BackupManager
 {
     public class BackupPoint
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public DateTime CreatedAt { get; set; }
         public long SizeBytes { get; set; }
         public Dictionary<string, object> Data { get; set; } = new();
-        public string Description { get; set; }
+        public string? Description { get; set; }
     }
     
     private List<BackupPoint> _backups = new();
@@ -376,7 +377,7 @@ public class BackupManager
         }
     }
     
-    public BackupPoint RestoreBackup(string name)
+    public BackupPoint? RestoreBackup(string name)
     {
         var backup = _backups.FirstOrDefault(b => b.Name == name);
         if (backup != null)
