@@ -1,0 +1,7 @@
+C:\Users\Administrator\Downloads\publish\decompiled\publish-enhanced\MIXANDMIN.exe
+C:\Users\Administrator\Downloads\publish\decompiled\publish-enhanced\WinDivert.dll
+C:\Users\Administrator\Downloads\publish\decompiled\publish-enhanced\WinDivert64.sys
+C:\Users\Administrator\Downloads\publish\decompiled\publish-enhanced\MIXANDMIN.dll
+C:\Users\Administrator\Downloads\publish\decompiled\publish-enhanced\MIXANDMIN.deps.json
+C:\Users\Administrator\Downloads\publish\decompiled\publish-enhanced\MIXANDMIN.runtimeconfig.json
+C:\Users\Administrator\Downloads\publish\decompiled\publish-enhanced\MIXANDMIN.pdb

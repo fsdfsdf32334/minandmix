@@ -1,0 +1,14 @@
+C:\Users\Administrator\Downloads\publish\decompiled\obj\Debug\net10.0-windows\LOVESIXHub.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Downloads\publish\decompiled\obj\Debug\net10.0-windows\LOVESIXHub.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Downloads\publish\decompiled\bin\Debug\net10.0-windows\WinDivert.dll
+C:\Users\Administrator\Downloads\publish\decompiled\bin\Debug\net10.0-windows\WinDivert64.sys
+C:\Users\Administrator\Downloads\publish\decompiled\bin\Debug\net10.0-windows\MIXANDMIN.exe
+c:\Users\Administrator\Downloads\publish\decompiled\bin\Debug\net10.0-windows\MIXANDMIN.deps.json
+c:\Users\Administrator\Downloads\publish\decompiled\bin\Debug\net10.0-windows\MIXANDMIN.runtimeconfig.json
+C:\Users\Administrator\Downloads\publish\decompiled\bin\Debug\net10.0-windows\MIXANDMIN.dll
+C:\Users\Administrator\Downloads\publish\decompiled\bin\Debug\net10.0-windows\MIXANDMIN.pdb
+C:\Users\Administrator\Downloads\publish\decompiled\obj\Debug\net10.0-windows\MIXANDMIN.dll
+C:\Users\Administrator\Downloads\publish\decompiled\obj\Debug\net10.0-windows\refint\MIXANDMIN.dll
+C:\Users\Administrator\Downloads\publish\decompiled\obj\Debug\net10.0-windows\MIXANDMIN.pdb
+c:\Users\Administrator\Downloads\publish\decompiled\obj\Debug\net10.0-windows\LOVESIXHub.genruntimeconfig.cache
+c:\Users\Administrator\Downloads\publish\decompiled\obj\Debug\net10.0-windows\ref\MIXANDMIN.dll
